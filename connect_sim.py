@@ -8,7 +8,8 @@ def connect_sim(customsCode):
         app = Desktop(backend="uia").window(class_name="ThunderRT6FormDC")
 
         if app.exists():
-            
+            app.maximize()
+            app.set_focus()
             app.type_keys("+{F2}")
             app.type_keys("^a")  # Envía "Ctrl + A" a la ventana
             print("Nombre de la ventana:", app.window_text())

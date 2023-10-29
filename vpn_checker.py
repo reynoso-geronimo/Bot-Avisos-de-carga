@@ -60,6 +60,21 @@ def connect_to_vpn():
         pyautogui.click(center_x, center_y)
     else:
         print("No se encontró el botón de Redes en la barra de tareas.")
+    button_position = pyautogui.locateOnScreen('uielements/red.png')
+
+    if button_position is not None:
+        # Calcula el centro del botón de Redes.
+        x, y, width, height = button_position
+        center_x = x + width // 2
+        center_y = y + height // 2
+
+        # Haz clic en el centro del botón de Redes.
+        pyautogui.click(center_x, center_y)
+        time.sleep(2)  # Pausa de 2 segundos
+
+    else:
+        print("No se encontró el botón de Redes en la barra de tareas.")
+
 
 def check_and_connect_vpn(vpnname):
     if not is_vpn_connected(vpnname):
