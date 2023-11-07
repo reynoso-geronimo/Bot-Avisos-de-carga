@@ -1,5 +1,5 @@
 import subprocess
-from pywinauto import Desktop
+import pyscreeze
 import pyautogui
 import time
 
@@ -16,7 +16,7 @@ def connect_to_vpn():
     time.sleep(5)
 
     # Encuentra las coordenadas del botón de Redes en la barra de tareas.
-    button_position = pyautogui.locateOnScreen('uielements/red.png')
+    button_position = pyscreeze.locateOnScreen('uielements/red.png')
 
     if button_position is not None:
         # Calcula el centro del botón de Redes.
@@ -32,7 +32,7 @@ def connect_to_vpn():
         print("No se encontró el botón de Redes en la barra de tareas.")
     
     # Encuentra las coordenadas del botón de Redes en la barra de tareas.
-    button_position = pyautogui.locateOnScreen('uielements/vpn.png')
+    button_position = pyscreeze.locateOnScreen('uielements/vpn.png')
 
     if button_position is not None:
         # Calcula el centro del botón de Redes.
@@ -48,7 +48,7 @@ def connect_to_vpn():
         print("No se encontró el botón de Redes en la barra de tareas.")
     
     # Encuentra las coordenadas del botón de Redes en la barra de tareas.
-    button_position = pyautogui.locateOnScreen('uielements/conectar.png')
+    button_position = pyscreeze.locateOnScreen('uielements/conectar.png')
 
     if button_position is not None:
         # Calcula el centro del botón de Redes.
@@ -60,7 +60,7 @@ def connect_to_vpn():
         pyautogui.click(center_x, center_y)
     else:
         print("No se encontró el botón de Redes en la barra de tareas.")
-    button_position = pyautogui.locateOnScreen('uielements/red.png')
+    button_position = pyscreeze.locateOnScreen('uielements/red.png')
 
     if button_position is not None:
         # Calcula el centro del botón de Redes.
