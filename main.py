@@ -1,4 +1,5 @@
 import time
+from datetime import datetime
 from internet_checker import check_internet_connection
 from api_client import get_api_data, process_api_data, set_status
 from vpn_checker import check_and_connect_vpn
@@ -9,6 +10,7 @@ def main():
         vpnname = 'Conexión Alpha2000'
         connectedCustoms = "000"
         success = True
+        start_day = datetime.now().day
 
         while True:
             check_internet_connection()
@@ -25,6 +27,12 @@ def main():
                 city= api_data['city']
                 noticeDate= api_data['noticeDate']
                 noticeTime= api_data['noticeTime']
+
+                # Verificar si el día ha cambiado
+                if start_day != datetime.now().day:
+                    connectedCustoms = "000"
+                    start_day = datetime.now().day
+
                 if connectedCustoms != customsCode:
                     success = connect_sim(customsCode)
                     connectedCustoms = customsCode
