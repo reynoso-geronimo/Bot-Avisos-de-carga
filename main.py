@@ -39,7 +39,7 @@ def main():
 
         while True:
             try:
-                check_internet_connection()
+                check_internet_connection(logger)
 
                 response = get_api_data()
                 api_data = process_api_data(response)
